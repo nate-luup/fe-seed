@@ -6,6 +6,7 @@ fe project skeleton
 - es6
 - typescript
 - react
+- axios
 # Tools and Plugins
 ## webpack
 - loaders

@@ -1,7 +1,7 @@
 {
-  "name": "fe-universe",
+  "name": "fe-seed",
   "private": true,
-  "version": "21.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {

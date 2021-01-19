@@ -1,12 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const AssetListWebpackPlugin = require('./webpack-plugins/asset-list-webpack-plugin.js')
+
 const path = require('path')
 const { merge } = require('webpack-merge')
 const baseConfig = require('./webpack.base.config.js')
 
 const PurifyCSS = require('purifycss-webpack')
 const glob = require('glob-all')
+const { name: repoName } = require('./package.json')
 
 const prodConfig = {
   mode: 'production',
@@ -59,6 +62,9 @@ const prodConfig = {
         path.resolve(__dirname, './src/*.html'),
         path.resolve(__dirname, './src/*.js'),
       ]),
+    }),
+    new AssetListWebpackPlugin({
+      filename: `${repoName.replace('-', '_')}`,
     }),
   ],
 }
