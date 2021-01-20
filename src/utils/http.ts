@@ -1,6 +1,6 @@
 import axios from 'axios'
 // Create axios instance
-let axiosInst = axios.create({
+const axiosInst = axios.create({
   timeout: 50000,
   baseURL: '/api',
 })
@@ -25,7 +25,7 @@ axiosInst.interceptors.request.use(
 // Setup response interceptor
 axiosInst.interceptors.response.use(
   async response => {
-    let { data, config } = response
+    const { data, config } = response
 
     if (data.code === 404) {
       alert(404)
@@ -38,4 +38,5 @@ axiosInst.interceptors.response.use(
     return Promise.reject(err)
   },
 )
+
 export default axiosInst

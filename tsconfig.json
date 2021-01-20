@@ -7,6 +7,7 @@
     "checkJs": true,
     "jsx": "preserve",
     "removeComments": true,
+    "moduleResolution": "node",
     "typeRoots": [
       "node_modules/@types",
       "src/types"
