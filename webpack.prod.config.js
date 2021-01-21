@@ -38,6 +38,10 @@ const prodConfig = {
       },
     ],
   },
+  // externals: {
+  //   react: 'React',
+  //   'react-dom': 'ReactDOM',
+  // },
   optimization: {
     usedExports: true,
   },

@@ -30,8 +30,8 @@ const devConfig = {
   devServer: {
     contentBase: './dist',
     open: true,
-    hot: true,
-    hotOnly: true,
+    // hot: true,
+    // hotOnly: true,
     port: 8888,
     proxy: {
       '/api': {

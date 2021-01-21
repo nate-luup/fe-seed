@@ -7,7 +7,8 @@
     "checkJs": true,
     "jsx": "preserve",
     "removeComments": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types",
       "src/types"

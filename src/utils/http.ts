@@ -1,4 +1,11 @@
 import axios from 'axios'
+import {
+  showSessionExpiredModal,
+  showServerInternalErrorModal,
+  redirectTo404Page,
+  redirectTo502Page,
+} from './http.component'
+
 // Create axios instance
 const axiosInst = axios.create({
   timeout: 50000,
@@ -26,12 +33,24 @@ axiosInst.interceptors.request.use(
 axiosInst.interceptors.response.use(
   async response => {
     const { data, config } = response
-
-    if (data.code === 404) {
-      alert(404)
-    } else if (data.code === 500) {
-      alert(500)
+    const { code } = data
+    switch (code) {
+      case '500':
+        showServerInternalErrorModal()
+        break
+      case '502':
+        redirectTo502Page()
+        break
+      case '401':
+        showSessionExpiredModal()
+        break
+      case '404':
+        redirectTo404Page()
+        break
+      default:
+        break
     }
+
     return data
   },
   err => {
