@@ -12,6 +12,9 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx|js|jsx)$/,
+        resolve: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
         use: {
           loader: 'babel-loader',
         },
@@ -33,5 +36,6 @@ module.exports = {
       },
     ],
   },
+
   plugins: [new CleanWebpackPlugin()],
 }
