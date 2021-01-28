@@ -1,3 +1,5 @@
+// https://cloud.tencent.com/developer/article/1540087
+
 import axios from 'axios'
 import {
   showSessionExpiredModal,
@@ -32,19 +34,19 @@ axiosInst.interceptors.request.use(
 // Setup response interceptor
 axiosInst.interceptors.response.use(
   async response => {
-    const { data, config } = response
+    const { status, data, config } = response
     const { code } = data
-    switch (code) {
-      case '500':
+    switch (status) {
+      case 500:
         showServerInternalErrorModal()
         break
-      case '502':
+      case 502:
         redirectTo502Page()
         break
-      case '401':
+      case 401:
         showSessionExpiredModal()
         break
-      case '404':
+      case 404:
         redirectTo404Page()
         break
       default:
